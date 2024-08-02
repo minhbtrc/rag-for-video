@@ -1,0 +1,17 @@
+pytube
+moviepy
+llama-index-core
+llama-index-llms-openai
+llama-index-llms-replicate
+llama-index-vector-stores-lancedb
+llama-index-embeddings-huggingface
+llama-index-embeddings-clip
+loguru
+SpeechRecognition==3.10.4
+ffmpeg
+soundfile
+git+https://github.com/openai/whisper.git
+matplotlib
+IPython
+lancedb
+git+https://github.com/openai/CLIP.git

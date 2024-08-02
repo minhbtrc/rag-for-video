@@ -1,0 +1,15 @@
+Given the provided information, including relevant images and retrieved context from the video, accurately and precisely answer the query without any additional prior knowledge.
+
+Please ensure honesty and responsibility, refraining from any racist or sexist remarks.
+
+---------------------
+
+Context: {context_str}
+
+Metadata for video: {metadata_str}
+
+---------------------
+
+Query: {query_str}
+
+Answer:

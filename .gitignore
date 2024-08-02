@@ -1,0 +1,9 @@
+.env
+.idea/
+temp_data/
+lancedb/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+*/*/*/*/__pycache__/
