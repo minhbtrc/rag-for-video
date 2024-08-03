@@ -7,11 +7,12 @@
     - chatbot can only receive Youtube video url as input.
     - just allow user to input message as text, not image yet
 - Chatbot using GPT4o as base LLM.
+- Demo: [demo](demo.mov)
 
 ### Process flow:
 
 - This chatbot basically use idea of RAG, the pipeline has the following steps:
-    - First: It will ask user to input a Youtube video url
+    - First: It will ask user to input a YouTube video url
         - Video Processor:
             - After receive the url, it will download it to the temporal directory using `tempfile` lib of python.
             - Then it will convert the video into images (it's also base on the video fps of your setting) and convert

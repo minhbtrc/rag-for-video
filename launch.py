@@ -5,7 +5,7 @@ from processors.processor import ConversationBot
 from processors.llms import GPT4o
 
 if __name__ == "__main__":
-    config = Config(output_folder="temp_data", video_fps=0.02, max_new_tokens=1500)
+    config = Config(output_folder="temp_data", video_fps=1, max_new_tokens=1500)
     output_folder = tempfile.TemporaryDirectory(dir=config.output_folder)
 
     video_processor = VideoProcessor(config=config)
@@ -38,4 +38,4 @@ if __name__ == "__main__":
         if not user_msg:
             continue
         response = bot.chat(user_message=user_msg)
-        print(f"Bot: {response}\n\n")
+        print(f"\033[92mBot: {response}\n\033[00m")

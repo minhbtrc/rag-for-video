@@ -17,7 +17,8 @@ class VideoProcessor:
         self.timestamps = {}
 
     def get_timestamps(self, image_path: str) -> dict:
-        return self.timestamps.get(image_path, {})
+        image_name = os.path.split(image_path)[-1]
+        return self.timestamps.get(image_name, {})
 
     @staticmethod
     def download_video(url, output_path):
@@ -65,7 +66,7 @@ class VideoProcessor:
                 frame = clip.get_frame(frame_time)
                 frame_path = os.path.join(output_folder, f"frame_{t:05d}.png")
                 ImageClip(frame).save_frame(frame_path)
-                timestamps[frame_path] = {"filename": frame_path, "timestamp": frame_time}
+                timestamps[f"frame_{t:05d}.png"] = {"filename": frame_path, "timestamp": frame_time}
 
             logger.info("Frames extracted successfully.")
             return timestamps

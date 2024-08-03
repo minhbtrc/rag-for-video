@@ -53,13 +53,15 @@ Answer:"""
         self._metadata = _metadata
 
     def read_video(self, url: str, ):
-        metadata = self.video_processor(url=url, output_folder=self.database_path)
+        self.video_processor(url=url, output_folder=self.database_path)
 
     def retrieve_relevant_info(self, query_str: str):
         img, txt = self.retriever_processor.retrieve(query_str=query_str)
         image_documents = SimpleDirectoryReader(
-            input_dir=self.database_path, input_files=img, file_metadata=self.video_processor.get_timestamps
-        ).load_data(show_progress=True)
+            input_dir=self.database_path, input_files=img
+        ).load_data()
+        for idx, image in enumerate(image_documents):
+            image.metadata = {"timestamp": self.video_processor.get_timestamps(image_path=img[idx])}
         return "".join(txt), image_documents
 
     def index(self, data_path: str):
