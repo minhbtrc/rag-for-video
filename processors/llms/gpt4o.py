@@ -1,6 +1,6 @@
 from llama_index.multi_modal_llms.openai import OpenAIMultiModal
 
-from src.processors.llms.base import LLM
+from processors.llms.base import LLM
 
 
 class GPT4o(LLM):

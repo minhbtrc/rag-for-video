@@ -1,4 +1,5 @@
-from llama_index.vector_stores.lancedb import LanceDBVectorStore
+import os
+
 from loguru import logger
 from typing import TYPE_CHECKING
 
@@ -6,11 +7,10 @@ from llama_index.core import SimpleDirectoryReader, StorageContext
 from llama_index.core.indices import MultiModalVectorStoreIndex
 from llama_index.core.response.notebook_utils import display_source_node
 from llama_index.core.schema import ImageNode
-# from llama_index.legacy import StorageContext
-# from llama_index.legacy.vector_stores import LanceDBVectorStore
+from llama_index.vector_stores.lancedb import LanceDBVectorStore
 
 if TYPE_CHECKING:
-    from src.processors.config import Config
+    from processors.config import Config
 
 
 class Retriever:
@@ -32,7 +32,7 @@ class Retriever:
             storage_context=self.storage_context,
         )
         self.retriever_engine = index.as_retriever(
-            similarity_top_k=5, image_similarity_top_k=5
+            similarity_top_k=3, image_similarity_top_k=3
         )
 
     def retrieve(self, query_str):

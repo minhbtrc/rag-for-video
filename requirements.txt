@@ -15,3 +15,5 @@ matplotlib
 IPython
 lancedb
 git+https://github.com/openai/CLIP.git
+gradio
+fitz

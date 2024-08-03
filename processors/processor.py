@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 from llama_index.core import SimpleDirectoryReader
 
 if TYPE_CHECKING:
-    from src.processors.video import VideoProcessor
-    from src.processors.retriever import Retriever
+    from processors.video import VideoProcessor
+    from processors.retriever import Retriever
     from config import Config
-    from src.processors.llms.base import LLM
+    from processors.llms.base import LLM
 
 
 class ConversationBot:
@@ -58,8 +58,8 @@ Answer:"""
     def retrieve_relevant_info(self, query_str: str):
         img, txt = self.retriever_processor.retrieve(query_str=query_str)
         image_documents = SimpleDirectoryReader(
-            input_dir=self.database_path, input_files=img
-        ).load_data()
+            input_dir=self.database_path, input_files=img, file_metadata=self.video_processor.get_timestamps
+        ).load_data(show_progress=True)
         return "".join(txt), image_documents
 
     def index(self, data_path: str):
