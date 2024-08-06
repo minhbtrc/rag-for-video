@@ -31,7 +31,7 @@
 ## Running
 
 - For the current version, it is highly recommended that you should running with Terminal, because gradio app may still
-  have some bugs, sorry for this inconvenience.
+  have some bugs.
 
 ### Terminal
 
